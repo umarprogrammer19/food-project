@@ -10,12 +10,16 @@ body {
     background-color: #ffeae0;
     font-family: sans-serif;
     margin-bottom: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
 }
 
 /* ============================================== Navbar ========================================== */
 .nav {
-    width: 100%;
+    width: 80vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
