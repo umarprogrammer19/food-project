@@ -7,18 +7,15 @@
 }
 
 body {
-    margin: 0 100px;
     background-color: #ffeae0;
     font-family: sans-serif;
     margin-bottom: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow-x: hidden;
 }
 
 /* ============================================== Navbar ========================================== */
 .nav {
-    width: 80vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +52,7 @@ body {
     height: 2px;
     background-color: #000000;
     margin-bottom: 5px;
+    margin-right: 20px;
 }
 
 .nav-links {
@@ -171,9 +169,10 @@ input[type="submit"] {
 /* =================================================== CARDS ================================ */
 .category,
 .category2 {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .category .list-items,
@@ -197,7 +196,7 @@ input[type="submit"] {
 .category .list-items .card-list,
 .category2 .list-items .card-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
     /* Responsive grid */
     gap: 30px;
     /* Add some spacing between cards */
