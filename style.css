@@ -76,10 +76,6 @@ body {
     font-size: 17px;
 }
 
-.nav-links.show {
-    display: block;
-}
-
 .nav-links .active::after {
     content: '';
     width: 50%;
