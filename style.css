@@ -1,17 +1,20 @@
-*,::after,::before{
+*,
+::after,
+::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    margin: 0 100px;    
+body {
+    margin: 0 100px;
     background-color: #ffeae0;
+    font-family: sans-serif;
+    margin-bottom: 75px;
 }
 
-/* ============================================== MENU ========================================== */
-
-.nav{
+/* ============================================== Navbar ========================================== */
+.nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -19,26 +22,50 @@ body{
     padding: 30px 0;
 }
 
-.nav .logo h1{
+.nav .logo {
+    flex: 0.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .logo h1 {
     font-weight: 600;
     font-family: sans-serif;
     color: #000000;
-} 
+    margin: 0;
+    font-size: larger;
+}
 
-.nav .logo b{
+.nav .logo b {
     color: #ff511c;
 }
 
-.nav ul{
-    display: flex;
-    list-style: none;
+.toggler {
+    display: none;
+    cursor: pointer;
 }
 
-.nav ul li{
+.toggler span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #000000;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
     margin-right: 30px;
 }
 
-.nav ul li a{
+.nav-links li a {
     text-decoration: none;
     color: #000000;
     font-weight: 500;
@@ -46,9 +73,11 @@ body{
     font-size: 17px;
 }
 
-/* ================================================ ACTIVE ========================================= */
+.nav-links.show {
+    display: block;
+}
 
-.nav ul .active::after{
+.nav-links .active::after {
     content: '';
     width: 50%;
     height: 3px;
@@ -58,287 +87,326 @@ body{
     margin-left: 10px;
 }
 
-input{
+.auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="submit"] {
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
-}
-
-#signin{
-    background: transparent;
-    border: none;
-}
-
-#signup{
-    background-color: #ff511c;
-    color: #fff;
-    outline: none;
     border: none;
     border-radius: 5px;
 }
 
+#signin {
+    background: transparent;
+    color: #000000;
+}
+
+#signup {
+    background-color: #ff511c;
+    color: #fff;
+}
+
 /* ================================================ CONTENT ======================================= */
-
-.content{
+.content {
     display: grid;
-    grid-template-columns: 50% auto;
+    grid-template-columns: 1fr;
+    /* Default to a single column layout */
     gap: 30px;
-    margin-top: 120px;
+    margin-top: 60px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    width: 90%;
+    /* Allow some margin on the sides */
+    max-width: 1200px;
+    /* Limit the maximum width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content .content-left {
     width: 100%;
+    text-align: center;
+    /* Center the text by default */
 }
 
-/* =============================================== Left-Side ======================================= */
-
-.content .content-left{
-    display: block;
-    width: 100%;
+.content .content-left .info h2 {
+    font-size: 5vw;
+    /* Responsive font size based on viewport width */
+    margin-bottom: 20px;
 }
 
-.content .content-left .info{
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
+.content .content-left .info p {
+    font-size: 4vw;
+    /* Responsive font size */
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
-.content .content-left .info h2{
-    font-size: 60px;
-    font-family: sans-serif;
-    margin-bottom: 30px;
-}
-
-.content .content-left .info p{
-    font-size: 23px;
-    margin-bottom: 30px;
-    font-family: sans-serif;
-}
-
-/* ============================================ BUTTON ==================================== */
-
-.content .content-left button{
+.content .content-left button {
     padding: 10px 23px;
     background-color: #ff511c;
     color: #ffffff;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 4vw;
+    /* Responsive button size */
 }
 
-/* ========================================== Right-Side ======================================= */
-
-
-.content .content-right{
-    display: block;
-    width: 100%;
-}
-
-.content .content-right img{
-    width: 440px;
+.content .content-right img {
+    max-width: 100%;
     height: auto;
     user-select: none;
-    position: relative;
-    bottom: 40px;
     animation: rotate 10s linear infinite;
     mix-blend-mode: multiply;
+    margin-top: 30px;
+    /* Add some spacing on smaller screens */
 }
 
-
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
 
 /* =================================================== CARDS ================================ */
-
-.category{
+.category,
+.category2 {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.category .list-items{
+.category .list-items,
+.category2 .list-items {
     width: 90%;
     position: relative;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-
-.category .list-items h3{
-    font-size: 20px;
+.category .list-items h3,
+.category2 .list-items h3 {
+    font-size: 2rem;
+    /* Use relative font sizes */
     font-weight: 600;
     font-family: sans-serif;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+    text-align: center;
+    /* Center the heading */
 }
 
-.category .list-items .card-list{
+.category .list-items .card-list,
+.category2 .list-items .card-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Add some spacing between cards */
 }
 
-.category .card-list .card{
-    width: 200px;
+.category .card-list .card,
+.category2 .card-list .card {
+    width: 100%;
+    /* Take full width of grid column */
     height: auto;
-    display: block;
     padding: 10px;
-    position: relative;
     background: #ffffff;
     outline: 2px solid #faad96;
-
-}
-
-.category .card-list .card img{
-    width: 110px;
-    height: auto;
-    bottom: 135px;
-    left: 50px;
-    object-fit: cover;
-    object-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    border-radius: 50%;
-    mix-blend-mode: multiply;
-    filter: contrast(1.5);
-}
-
-.category .card-list .card .food-title{
-    padding: 40px 0 10px;
-}
-
-.category .card-list .card .food-title h1{
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: sans-serif;
-}
-
-.category .card .desc-food p{
-    font-size: 13px;
-    text-align: center;
-    font-weight: 500;
-    margin-bottom: 20px;
-    font-family: sans-serif;
-}
-
-.category .card .price{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* Center content inside the card */
 }
 
-.category .card .price span{
-    font-weight: 600;
-    font-family: sans-serif;
-}
-
-.category .card .price span .plus-icon{
-    color: #ff511c;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* ================================================= Scroll Bar =================================== */
-
-::-webkit-scrollbar{
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb{
-    border-radius: 20px;
-    background-color: #ff511c;
-}
-
-
-/* ================================================= Category 2 =================================== */
-
-.category2{
-    width: 100%;
-    display: flex;
-    margin-bottom: 100px;
-    justify-content: center;
-}
-
-
-.category2 .list-items{
-    width: 90%;
-    position: relative;
-    margin-top: 100px;
-}
-
-
-.category2 .list-items h3{
-    font-size: 20px;
-    font-weight: 600;
-    font-family: sans-serif;
-    margin-bottom: 70px;
-}
-
-.category2 .list-items .card-list{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.category2 .card-list .card{
-    width: 200px;
-    height: auto;
-    display: block;
-    padding: 10px;
-    position: relative;
-    background: #ffffff;
-    outline: 2px solid #faad96;
-
-}
-
-.category2 .card-list .card img{
+.category .card-list .card img,
+.category2 .card-list .card img {
     width: 120px;
-    height: auto;
-    bottom: 140px;
-    left: 45px;
+    /* Adjust image size */
+    height: 120px;
     object-fit: cover;
-    object-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
     border-radius: 50%;
     mix-blend-mode: multiply;
     filter: contrast(1.5);
+    margin-top: -60px;
+    /* Slightly adjust the positioning */
 }
 
-.category2 .card-list .card .food-title{
-    padding: 40px 0 10px;
-}
-
-.category2 .card-list .card .food-title h1{
+.category .card-list .card .food-title,
+.category2 .card-list .card .food-title {
+    margin-top: 40px;
+    /* Adjust spacing above title */
     text-align: center;
+}
+
+.category .card-list .card .food-title h1,
+.category2 .card-list .card .food-title h1 {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.5rem;
+    /* Use relative font size */
     font-family: sans-serif;
 }
 
-.category2 .card .desc-food p{
-    font-size: 13px;
+.category .card .desc-food p,
+.category2 .card .desc-food p {
+    font-size: 1rem;
+    /* Use relative font size */
     text-align: center;
     font-weight: 500;
     margin-bottom: 20px;
     font-family: sans-serif;
 }
 
-.category2 .card .price{
+.category .card .price,
+.category2 .card .price {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    /* Adjust padding for better spacing */
 }
 
-.category2 .card .price span{
+.category .card .price span,
+.category2 .card .price span {
     font-weight: 600;
     font-family: sans-serif;
+    font-size: 1.2rem;
+    /* Use relative font size */
 }
 
-.category2 .card .price span .plus-icon{
+.category .card .price span .plus-icon,
+.category2 .card .price span .plus-icon {
     color: #ff511c;
-    font-size: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .toggler {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .nav-links li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .auth {
+        display: none;
+    }
+
+    .category .list-items h3,
+    .category2 .list-items h3 {
+        font-size: 1.5rem;
+        /* Smaller heading for mobile */
+    }
+
+    .category .card-list .card img,
+    .category2 .card-list .card img {
+        width: 80px;
+        /* Smaller images for mobile */
+        height: 80px;
+    }
+
+    .category .card-list .card .food-title h1,
+    .category2 .card-list .card .food-title h1 {
+        font-size: 1.2rem;
+        /* Smaller title for mobile */
+    }
+
+    .category .card .desc-food p,
+    .category2 .card .desc-food p {
+        font-size: 0.9rem;
+        /* Smaller description for mobile */
+    }
+
+    .category .card .price span,
+    .category2 .card .price span {
+        font-size: 1rem;
+        /* Smaller price text for mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .nav {
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        padding: 10px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+        /* Two columns on medium screens and up */
+        margin-top: 80px;
+    }
+
+    .content .content-left {
+        text-align: left;
+        /* Align text to the left */
+    }
+
+    .content .content-left .info h2 {
+        font-size: 4vw;
+        /* Smaller relative font size for larger screens */
+    }
+
+    .content .content-left .info p {
+        font-size: 2vw;
+    }
+
+    .content .content-left button {
+        font-size: 1.5vw;
+        /* Smaller button size for larger screens */
+    }
+
+    .content .content-right img {
+        width: 400px;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content .content-left .info h2 {
+        font-size: 3vw;
+    }
+
+    .content .content-left .info p {
+        font-size: 1.5vw;
+    }
+
+    .content .content-left button {
+        font-size: 1vw;
+    }
+
+    .content .content-right img {
+        width: 500px;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
